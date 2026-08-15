@@ -1,0 +1,5 @@
+# dsh-multi-workspace: inject all registered workspaces into the sandbox policy
+# as writable roots.  Add a workspace in the UI → write to it immediately.
+- insert:
+    - id: dsh-multi-workspace
+      name: 'dsh-multi-workspace'

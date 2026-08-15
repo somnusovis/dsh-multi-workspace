@@ -1,0 +1,25 @@
+{
+  "name": "dsh-multi-workspace",
+  "version": "0.1.0",
+  "description": "Multi-workspace sandbox for DSH: automatically grant file-write access to ALL registered workspaces — add a workspace in the UI, write to it immediately, no config needed.",
+  "keywords": ["deepseek", "deepseek-harness", "dsh", "cordis", "multi-workspace", "sandbox"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/somnusovis/test-from-dsh"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "cordis.patch.yml", "README.md", "LICENSE"],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "license": "MIT"
+}
