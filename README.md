@@ -1,4 +1,4 @@
-﻿# dsh-multi-workspace
+# dsh-multi-workspace
 
 Multi-workspace sandbox for DeepSeek Harness (DSH).
 
@@ -21,7 +21,10 @@ Two layers:
 ## Installation
 
 ```
-dsh plugin --profile web add github:somnusovis/test-from-dsh
+dsh plugin --profile web add github:somnusovis/dsh-multi-workspace
+
+# Or from npm (once published)
+dsh plugin --profile web add dsh-multi-workspace
 ```
 
 Restart DSH web service and refresh browser.
