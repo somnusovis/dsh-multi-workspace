@@ -5,7 +5,7 @@
   "keywords": ["deepseek", "deepseek-harness", "dsh", "cordis", "multi-workspace", "sandbox"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/somnusovis/test-from-dsh"
+    "url": "https://github.com/somnusovis/dsh-multi-workspace"
   },
   "type": "module",
   "exports": {
