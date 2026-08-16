@@ -20,12 +20,7 @@ export default {
     var origResolve = policy.resolve.bind(policy);
     policy.resolve = function(request) {
       var result = origResolve(request);
-      var copy = {};
-      for (var k in result) {
-        if (Object.prototype.hasOwnProperty.call(result, k)) {
-          copy[k] = result[k];
-        }
-      }
+      var copy = Object.create(result);
       var extra = Array.isArray(copy.additionalWorkspaceRoots)
         ? copy.additionalWorkspaceRoots.slice()
         : [];
@@ -94,24 +89,6 @@ export default {
         { code: 'FS_SANDBOX_DENIED' }
       );
     };
-
-    // ── 4. RPC: getWorkspaces ────────────────────────────────────────────
-    harness.handle('getWorkspaces', function() {
-      var p = policy.resolve();
-      var roots = p.additionalWorkspaceRoots || [];
-      if (!registry) return { workspaceRoot: p.workspaceRoot, additionalRoots: [] };
-      var ws;
-      try { ws = registry.list(); } catch (_) { ws = []; }
-      var items = ws.map(function(w) {
-        return {
-          id: w.id,
-          path: w.path,
-          title: w.title || '',
-          writable: roots.indexOf(w.path) !== -1
-        };
-      });
-      return { workspaceRoot: p.workspaceRoot, workspaces: items };
-    });
 
     // ── Cleanup ─────────────────────────────────────────────────────────
     ctx.effect(function() {
